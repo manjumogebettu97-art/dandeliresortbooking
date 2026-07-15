@@ -12,7 +12,7 @@
   var hero = document.querySelector(".hero");
   var heroContent = document.querySelector(".hero-content");
   var ticking = false;
-  var lastY = window.scrollY;
+  var lastY = 0;
   var allowHeaderHide = false;
   var scrollEndTimer = null;
   window.setTimeout(function () { allowHeaderHide = true; lastY = window.scrollY; }, 700);
@@ -20,6 +20,7 @@
   function paint() {
     ticking = false;
     var y = window.scrollY;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
     header.classList.toggle("scrolled", y > 40);
     if (allowHeaderHide && !document.body.classList.contains("nav-open")) {
       header.classList.toggle("header-hidden", y > lastY && y > 180);
@@ -27,12 +28,16 @@
       header.classList.remove("header-hidden");
     }
 
-    var max = document.documentElement.scrollHeight - window.innerHeight;
     progressBar.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
 
     if (!reducedMotion && heroContent && y < window.innerHeight) {
-      heroContent.style.transform = "translateY(" + y * 0.16 + "px)";
-      heroContent.style.opacity = String(Math.max(0, 1 - y / (window.innerHeight * 0.85)));
+      if (y > 0) {
+        heroContent.style.transform = "translateY(" + y * 0.16 + "px)";
+        heroContent.style.opacity = String(Math.max(0, 1 - y / (window.innerHeight * 0.85)));
+      } else if (heroContent.style.transform) {
+        heroContent.style.transform = "";
+        heroContent.style.opacity = "";
+      }
     }
     lastY = y;
   }
@@ -46,7 +51,8 @@
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
-  paint();
+  ticking = true;
+  requestAnimationFrame(paint);
 
   /* ---------- Pointer-responsive hero light + background drift ---------- */
   var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -95,21 +101,71 @@
   var toggle = document.getElementById("navToggle");
   var nav = document.getElementById("mainNav");
   var navScrim = document.getElementById("navScrim");
-  function closeNav() {
+  var mobileNavQuery = window.matchMedia("(max-width: 860px)");
+  function syncNavState() {
+    var open = document.body.classList.contains("nav-open");
+    var hidden = mobileNavQuery.matches && !open;
+    nav.inert = hidden;
+    nav.setAttribute("aria-hidden", String(hidden));
+    if (!mobileNavQuery.matches) nav.removeAttribute("aria-hidden");
+  }
+  function closeNav(returnFocus) {
     document.body.classList.remove("nav-open");
     toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open menu");
+    syncNavState();
+    if (returnFocus) toggle.focus();
   }
   toggle.addEventListener("click", function () {
     var open = document.body.classList.toggle("nav-open");
     toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+    syncNavState();
+    if (open) {
+      window.setTimeout(function () {
+        var firstLink = nav.querySelector("a[href]");
+        if (firstLink) firstLink.focus();
+      }, 50);
+    }
   });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && document.body.classList.contains("nav-open")) closeNav();
+    if (!document.body.classList.contains("nav-open")) return;
+    if (e.key === "Escape") {
+      e.preventDefault();
+      closeNav(true);
+      return;
+    }
+    if (e.key === "Tab") {
+      var menuLinks = Array.prototype.slice.call(nav.querySelectorAll("a[href]"));
+      if (!menuLinks.length) return;
+      var first = menuLinks[0];
+      var last = menuLinks[menuLinks.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        toggle.focus();
+      } else if (e.shiftKey && document.activeElement === toggle) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        toggle.focus();
+      } else if (!e.shiftKey && document.activeElement === toggle) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   });
   nav.addEventListener("click", function (e) {
-    if (e.target.closest("a")) closeNav();
+    if (e.target.closest("a")) closeNav(false);
   });
-  if (navScrim) navScrim.addEventListener("click", closeNav);
+  if (navScrim) navScrim.addEventListener("click", function () { closeNav(true); });
+  function handleNavModeChange() {
+    if (!mobileNavQuery.matches) closeNav(false);
+    else syncNavState();
+  }
+  if (typeof mobileNavQuery.addEventListener === "function") mobileNavQuery.addEventListener("change", handleNavModeChange);
+  else mobileNavQuery.addListener(handleNavModeChange);
+  syncNavState();
 
   /* ---------- Scroll-spy for nav links ---------- */
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-link"));
@@ -130,7 +186,7 @@
   /* ---------- Reveal on scroll (with stagger) ---------- */
   document.querySelectorAll(".section-head").forEach(function (el) { el.classList.add("reveal"); });
 
-  [".assurance-grid", ".card-grid", ".include-grid", ".activity-showcase", ".sight-grid", ".steps", ".gallery-grid"]
+  [".card-grid", ".include-grid", ".activity-showcase", ".sight-grid", ".steps", ".gallery-grid"]
     .forEach(function (sel) {
       document.querySelectorAll(sel).forEach(function (parent) {
         Array.prototype.forEach.call(parent.children, function (child, i) {
@@ -141,18 +197,23 @@
       });
     });
 
-  var revealer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        revealer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll(".reveal").forEach(function (el) { revealer.observe(el); });
+  var revealElements = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window && !reducedMotion) {
+    var revealer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealElements.forEach(function (el) { revealer.observe(el); });
+  } else {
+    revealElements.forEach(function (el) { el.classList.add("visible"); });
+  }
 
   var steps = document.querySelector(".steps");
-  if (steps) {
+  if (steps && "IntersectionObserver" in window) {
     var pathObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -238,17 +299,45 @@
   var checkin = document.getElementById("checkin");
   var checkout = document.getElementById("checkout");
 
-  // Don't allow past dates, and keep check-out on/after check-in.
-  var todayISO = new Date().toISOString().split("T")[0];
+  function toLocalISO(date) {
+    var year = date.getFullYear();
+    var month = String(date.getMonth() + 1).padStart(2, "0");
+    var day = String(date.getDate()).padStart(2, "0");
+    return year + "-" + month + "-" + day;
+  }
+  function nextDay(iso) {
+    var parts = iso.split("-").map(Number);
+    var date = new Date(parts[0], parts[1] - 1, parts[2]);
+    date.setDate(date.getDate() + 1);
+    return toLocalISO(date);
+  }
+
+  // Don't allow past dates, and require at least one overnight stay.
+  var todayISO = toLocalISO(new Date());
   checkin.min = todayISO;
-  checkout.min = todayISO;
+  checkout.min = nextDay(todayISO);
   checkin.addEventListener("change", function () {
-    checkout.min = checkin.value || todayISO;
-    if (checkout.value && checkout.value < checkin.value) checkout.value = checkin.value;
+    checkout.min = nextDay(checkin.value || todayISO);
+    if (checkout.value && checkout.value < checkout.min) checkout.value = checkout.min;
   });
+
+  var mobileInput = form.elements.mobile;
+  function validateMobile() {
+    var digits = mobileInput.value.replace(/\D/g, "");
+    var valid = /^[6-9][0-9]{9}$/.test(digits);
+    mobileInput.setCustomValidity(valid || !mobileInput.value ? "" : "Enter a valid 10-digit Indian mobile number.");
+    return valid;
+  }
+  mobileInput.addEventListener("input", validateMobile);
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    validateMobile();
+    if (checkin.value && checkout.value && checkout.value <= checkin.value) {
+      checkout.setCustomValidity("Check-out must be at least one day after check-in.");
+    } else {
+      checkout.setCustomValidity("");
+    }
     if (!form.reportValidity()) return;
 
     var data = new FormData(form);
@@ -256,7 +345,7 @@
       "Hi! I'd like to enquire about a Dandeli stay.",
       "",
       "Name: " + data.get("name"),
-      "Mobile: " + data.get("mobile"),
+      "Mobile: " + String(data.get("mobile")).replace(/\D/g, ""),
       "Check-in: " + data.get("checkin"),
       "Check-out: " + data.get("checkout"),
       "People: " + data.get("people"),
@@ -275,16 +364,26 @@
   var lbImg = document.getElementById("lbImg");
   var lbCaption = document.getElementById("lbCaption");
   var current = 0;
+  var lightboxReturnFocus = null;
+
+  items.forEach(function (item) {
+    var cap = item.querySelector("figcaption");
+    item.setAttribute("role", "button");
+    item.setAttribute("tabindex", "0");
+    item.setAttribute("aria-label", "Open image: " + (cap ? cap.textContent : "gallery photo"));
+  });
 
   function showLightbox(index) {
+    if (lightbox.hidden) lightboxReturnFocus = document.activeElement;
     current = (index + items.length) % items.length;
     var img = items[current].querySelector("img");
     var cap = items[current].querySelector("figcaption");
-    lbImg.src = img.src;
+    lbImg.src = img.currentSrc || img.src;
     lbImg.alt = img.alt;
     lbCaption.textContent = cap ? cap.textContent : "";
     lightbox.hidden = false;
     document.body.style.overflow = "hidden";
+    document.getElementById("lbClose").focus();
     if (!reducedMotion && typeof lbImg.animate === "function") {
       lbImg.animate([
         { opacity: 0, transform: "translateY(12px) scale(.975)", filter: "blur(4px)" },
@@ -295,10 +394,18 @@
   function hideLightbox() {
     lightbox.hidden = true;
     document.body.style.overflow = "";
+    lbImg.removeAttribute("src");
+    if (lightboxReturnFocus && typeof lightboxReturnFocus.focus === "function") lightboxReturnFocus.focus();
   }
 
   items.forEach(function (item, i) {
     item.addEventListener("click", function () { showLightbox(i); });
+    item.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        showLightbox(i);
+      }
+    });
   });
   document.getElementById("lbClose").addEventListener("click", hideLightbox);
   document.getElementById("lbPrev").addEventListener("click", function () { showLightbox(current - 1); });
@@ -308,9 +415,21 @@
   });
   document.addEventListener("keydown", function (e) {
     if (lightbox.hidden) return;
-    if (e.key === "Escape") hideLightbox();
+    if (e.key === "Escape") { e.preventDefault(); hideLightbox(); }
     if (e.key === "ArrowLeft") showLightbox(current - 1);
     if (e.key === "ArrowRight") showLightbox(current + 1);
+    if (e.key === "Tab") {
+      var controls = [document.getElementById("lbClose"), document.getElementById("lbPrev"), document.getElementById("lbNext")];
+      var firstControl = controls[0];
+      var lastControl = controls[controls.length - 1];
+      if (e.shiftKey && document.activeElement === firstControl) {
+        e.preventDefault();
+        lastControl.focus();
+      } else if (!e.shiftKey && document.activeElement === lastControl) {
+        e.preventDefault();
+        firstControl.focus();
+      }
+    }
   });
 
   /* ---------- Footer year ---------- */
