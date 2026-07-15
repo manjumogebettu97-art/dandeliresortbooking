@@ -48,6 +48,7 @@
       </button>
     </div>
   </header>
+  <button class="nav-scrim" id="navScrim" type="button" aria-label="Close navigation" tabindex="-1"></button>
 
   <!-- ============ HERO ============ -->
   <section class="hero">
@@ -82,6 +83,28 @@
     </div>
   </div>
 
+  <!-- ============ BOOKING ASSURANCE ============ -->
+  <section class="assurance" aria-label="Booking benefits">
+    <div class="container assurance-grid">
+      <article class="assurance-item reveal">
+        <span class="assurance-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.8 3.2 8 7.5 9.5 4.3-1.5 7.5-4.7 7.5-9.5V6L12 3Z"/><path d="m8.8 12 2.1 2.1 4.4-4.5"/></svg></span>
+        <div><strong>Direct Booking</strong><span>Clear pricing, no middlemen</span></div>
+      </article>
+      <article class="assurance-item reveal">
+        <span class="assurance-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16a8 8 0 0 1-16 0Z"/><path d="M7 12V9h10v3M9 6h6"/></svg></span>
+        <div><strong>Meals Included</strong><span>Breakfast, lunch and dinner</span></div>
+      </article>
+      <article class="assurance-item reveal">
+        <span class="assurance-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c2.3 0 2.3 1.8 4.6 1.8s2.3-1.8 4.6-1.8 2.3 1.8 4.6 1.8S19.1 15 21 15"/><path d="m7 12 5-7 5 7M12 5v9"/></svg></span>
+        <div><strong>Adventure Ready</strong><span>River and in-house activities</span></div>
+      </article>
+      <article class="assurance-item reveal">
+        <span class="assurance-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
+        <div><strong>Local Assistance</strong><span>Quick support on WhatsApp</span></div>
+      </article>
+    </div>
+  </section>
+
   <!-- ============ PACKAGES ============ -->
   <section class="section" id="packages">
     <div class="container">
@@ -105,7 +128,7 @@
               <span class="pkg-price">₹1199 <small>/ person</small></span>
             </div>
             <div class="pkg-actions">
-              <a href="#inclusions" class="btn btn-ghost">View Details</a>
+              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
               <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Camping%20Tents%20package%20(%E2%82%B91199%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
             </div>
           </div>
@@ -124,7 +147,7 @@
               <span class="pkg-price">₹1299 <small>/ person</small></span>
             </div>
             <div class="pkg-actions">
-              <a href="#inclusions" class="btn btn-ghost">View Details</a>
+              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
               <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Eco%20Green%20Homestay%20package%20(%E2%82%B91299%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
             </div>
           </div>
@@ -143,7 +166,7 @@
               <span class="pkg-price">₹1499 <small>/ person</small></span>
             </div>
             <div class="pkg-actions">
-              <a href="#inclusions" class="btn btn-ghost">View Details</a>
+              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
               <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Vardant%20A%20Shape%20Cottage%20package%20(%E2%82%B91499%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
             </div>
           </div>
@@ -162,7 +185,7 @@
               <span class="pkg-price">₹1799 <small>/ person</small></span>
             </div>
             <div class="pkg-actions">
-              <a href="#inclusions" class="btn btn-ghost">View Details</a>
+              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
               <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Wooden%20Cottage%20for%20Couple%20package%20(%E2%82%B91799%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
             </div>
           </div>
@@ -181,7 +204,7 @@
               <span class="pkg-price">₹1999 <small>/ person</small></span>
             </div>
             <div class="pkg-actions">
-              <a href="#inclusions" class="btn btn-ghost">View Details</a>
+              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
               <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Vantara%20Inn%20package%20(%E2%82%B91999%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
             </div>
           </div>
@@ -200,7 +223,7 @@
               <span class="pkg-price">₹2999 <small>/ person</small></span>
             </div>
             <div class="pkg-actions">
-              <a href="#inclusions" class="btn btn-ghost">View Details</a>
+              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
               <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Nadi%20Teera%20Cottages%20package%20(%E2%82%B92999%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
             </div>
           </div>
@@ -246,52 +269,56 @@
     </div>
   </section>
 
-  <!-- ============ ACTIVITIES / FEATURED STAYS ============ -->
-  <section class="section" id="activities">
+  <!-- ============ IMMERSIVE ACTIVITIES ============ -->
+  <section class="section activity-section" id="activities">
     <div class="container">
-      <div class="section-head">
-        <span class="eyebrow">Guest Favourites</span>
-        <h2>Popular Stays in Dandeli</h2>
-        <p>The three stays our travellers book the most.</p>
+      <div class="activity-intro">
+        <div class="section-head activity-head">
+          <span class="eyebrow">Beyond the Stay</span>
+          <h2>Adventure Has a Different Rhythm Here</h2>
+        </div>
+        <p class="activity-lead reveal">Begin on the Kali river, wander through the forest, then return to music, rain dance and a warm bonfire evening.</p>
       </div>
 
-      <div class="featured-grid">
-        <article class="feat-card reveal">
-          <img src="images/eco-homestay.jpg" alt="Eco Green Homestay cottages and garden" loading="lazy">
-          <div class="feat-body">
-            <h3>Eco Green Homestay</h3>
-            <p>Best for budget stays and group trips.</p>
-            <div class="feat-foot">
-              <span class="pkg-price">₹1299 <small>/ person</small></span>
-              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20Eco%20Green%20Homestay%20(%E2%82%B91299%20pp)." class="btn btn-primary btn-sm" target="_blank" rel="noopener">Book</a>
-            </div>
+      <div class="activity-showcase">
+        <article class="activity-panel activity-panel-main reveal">
+          <img src="images/gal-kayak.webp" alt="Guests kayaking through the calm Kali river" loading="lazy" decoding="async">
+          <div class="activity-shade"></div>
+          <span class="activity-number">01</span>
+          <div class="activity-copy">
+            <span class="activity-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2.3 0 2.3 1.7 4.6 1.7s2.3-1.7 4.6-1.7 2.3 1.7 4.6 1.7S19.1 17 21 17"/><path d="m6 14 6-8 6 8M12 6v9"/></svg></span>
+            <p>River Kali</p>
+            <h3>Kayak. Boat. Explore.</h3>
+            <ul><li>Kayaking</li><li>Boating</li><li>Zorbing</li></ul>
           </div>
         </article>
 
-        <article class="feat-card reveal is-popular">
-          <span class="pop-tag">Most Popular</span>
-          <img src="images/pkg-inn.webp" alt="Vantara Inn resort walkway at night" loading="lazy">
-          <div class="feat-body">
-            <h3>Vantara Inn</h3>
-            <p>Comfort stay with complete activity package.</p>
-            <div class="feat-foot">
-              <span class="pkg-price">₹1999 <small>/ person</small></span>
-              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20Vantara%20Inn%20(%E2%82%B91999%20pp)." class="btn btn-primary btn-sm" target="_blank" rel="noopener">Book</a>
-            </div>
+        <article class="activity-panel reveal">
+          <img src="images/tree-house.jpg" alt="Tree house surrounded by Dandeli forest" loading="lazy" decoding="async">
+          <div class="activity-shade"></div>
+          <span class="activity-number">02</span>
+          <div class="activity-copy">
+            <span class="activity-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 12h4l-3 7h12l-3-7h4L12 3Z"/><path d="M12 19v3"/></svg></span>
+            <p>Into the Wild</p>
+            <h3>Forest Trails &amp; Fresh Air</h3>
           </div>
         </article>
 
-        <article class="feat-card reveal">
-          <img src="images/naditeera-room.jpg" alt="Nadi Teera premium room with tropical mural and twin beds" loading="lazy">
-          <div class="feat-body">
-            <h3>Nadi Teera Premium Cottages</h3>
-            <p>Premium cottage experience near nature.</p>
-            <div class="feat-foot">
-              <span class="pkg-price">₹2999 <small>/ person</small></span>
-              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20Nadi%20Teera%20Premium%20Cottages%20(%E2%82%B92999%20pp)." class="btn btn-primary btn-sm" target="_blank" rel="noopener">Book</a>
-            </div>
+        <article class="activity-panel reveal">
+          <img src="images/night-aerial.jpg" alt="Dandeli resort glowing at night around the pool" loading="lazy" decoding="async">
+          <div class="activity-shade"></div>
+          <span class="activity-number">03</span>
+          <div class="activity-copy">
+            <span class="activity-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 3 4 5.4 4 8a4 4 0 0 1-8 0c0-1.7.9-3.4 2.2-5.3.1 2.3.8 3.8 1.8 4.8.8-2.2.7-4.8 0-7.5Z"/><path d="M4 20c2 0 2 1 4 1s2-1 4-1 2 1 4 1 2-1 4-1"/></svg></span>
+            <p>After Sunset</p>
+            <h3>Bonfire, Music &amp; Rain Dance</h3>
           </div>
         </article>
+      </div>
+
+      <div class="activity-cta reveal">
+        <p><strong>One itinerary.</strong> Nature, adventure and unhurried evenings.</p>
+        <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20know%20more%20about%20the%20activities%20included%20in%20the%20Dandeli%20packages." class="btn btn-primary btn-lg" target="_blank" rel="noopener">Plan My Adventure <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -348,24 +375,28 @@
         <p>From choosing a stay to enjoying your trip — four easy steps.</p>
       </div>
 
-      <ol class="steps">
+      <ol class="steps" aria-label="Four booking steps">
         <li class="step reveal">
           <span class="step-num">1</span>
+          <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-6 8 6v11"/><path d="M8 20v-6h8v6M3 20h18"/></svg></span>
           <h3>Choose Your Stay</h3>
           <p>Select your preferred package — homestay, cottage, inn, premium cottage or camping tents.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">2</span>
+          <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M7 3v4M17 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></span>
           <h3>Select Date &amp; People</h3>
           <p>Share your travel date and the number of people joining.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">3</span>
+          <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/><path d="m14.5 7.5 1.5 1.5 3-3"/></svg></span>
           <h3>Confirm on WhatsApp</h3>
           <p>Confirm availability and booking details through WhatsApp.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">4</span>
+          <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 12h4l-3 7h12l-3-7h4L12 3Z"/><path d="M3 21c2 0 2-1 4-1s2 1 4 1 2-1 4-1 2 1 4 1 2-1 2-1"/></svg></span>
           <h3>Enjoy Your Dandeli Trip</h3>
           <p>Arrive, relax and enjoy your stay, food, activities and sightseeing.</p>
         </li>
@@ -544,6 +575,42 @@
   <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20a%20Dandeli%20stay%20package." class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.3c1.9 1 4 1.6 6.2 1.6h.5c6.6 0 12-5.3 12-11.9C30 8.3 24.6 3 16 3Zm5.9 16.9c-.3.8-1.7 1.6-2.4 1.7-.6.1-1.4.2-2.2-.1-.5-.2-1.2-.4-2-.8-3.6-1.5-5.9-5.1-6.1-5.4-.2-.2-1.4-1.9-1.4-3.6 0-1.7.9-2.6 1.2-2.9.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.8 1 2.7 1.1 2.9.1.2.2.4 0 .7-.1.2-.2.4-.4.6l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.7 2.2 2.7 1.5 1.3 2.8 1.7 3.2 1.9.4.2.6.2.9-.1.2-.3 1-1.2 1.3-1.6.3-.4.5-.3.9-.2.4.1 2.4 1.1 2.8 1.3.4.2.7.3.8.5.1.2.1.9-.2 1.7Z"/></svg>
   </a>
+
+  <!-- Mobile booking dock -->
+  <aside class="mobile-booking-dock" aria-label="Quick booking actions">
+    <a href="tel:+918884113122" class="dock-call">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+      Call
+    </a>
+    <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20check%20availability%20for%20a%20Dandeli%20stay." target="_blank" rel="noopener" class="dock-whatsapp">
+      Check Availability <span aria-hidden="true">↗</span>
+    </a>
+  </aside>
+
+  <!-- Package details dialog -->
+  <dialog class="package-dialog" id="packageDialog" aria-labelledby="dialogTitle">
+    <div class="package-dialog-shell">
+      <button class="package-dialog-close" id="packageDialogClose" type="button" aria-label="Close package details">&times;</button>
+      <div class="package-dialog-media"><img id="dialogImage" src="" alt=""></div>
+      <div class="package-dialog-content">
+        <span class="eyebrow" id="dialogType">Stay Package</span>
+        <h2 id="dialogTitle">Package details</h2>
+        <p id="dialogDescription"></p>
+        <strong class="dialog-price" id="dialogPrice"></strong>
+        <div class="dialog-inclusions">
+          <h3>Included with your stay</h3>
+          <ul>
+            <li><span>✓</span> Breakfast, lunch and dinner</li>
+            <li><span>✓</span> Boating, kayaking and zorbing</li>
+            <li><span>✓</span> Guided trekking experience</li>
+            <li><span>✓</span> Pool and in-house activities</li>
+          </ul>
+        </div>
+        <p class="dialog-note">Availability and final itinerary are confirmed directly on WhatsApp.</p>
+        <a id="dialogBook" href="#" class="btn btn-primary btn-lg btn-block" target="_blank" rel="noopener">Check Availability <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </dialog>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>

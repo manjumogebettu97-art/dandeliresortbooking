@@ -9,13 +9,22 @@
   /* ---------- Sticky header + scroll progress + hero parallax ---------- */
   var header = document.querySelector(".site-header");
   var progressBar = document.getElementById("progressBar");
+  var hero = document.querySelector(".hero");
   var heroContent = document.querySelector(".hero-content");
   var ticking = false;
+  var lastY = window.scrollY;
+  var allowHeaderHide = false;
+  window.setTimeout(function () { allowHeaderHide = true; lastY = window.scrollY; }, 700);
 
   function paint() {
     ticking = false;
     var y = window.scrollY;
     header.classList.toggle("scrolled", y > 40);
+    if (allowHeaderHide && !document.body.classList.contains("nav-open")) {
+      header.classList.toggle("header-hidden", y > lastY && y > 180);
+    } else {
+      header.classList.remove("header-hidden");
+    }
 
     var max = document.documentElement.scrollHeight - window.innerHeight;
     progressBar.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
@@ -24,6 +33,7 @@
       heroContent.style.transform = "translateY(" + y * 0.16 + "px)";
       heroContent.style.opacity = String(Math.max(0, 1 - y / (window.innerHeight * 0.85)));
     }
+    lastY = y;
   }
   function onScroll() {
     if (!ticking) { ticking = true; requestAnimationFrame(paint); }
@@ -31,6 +41,26 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
   paint();
+
+  /* ---------- Pointer-responsive hero light + background drift ---------- */
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!reducedMotion && finePointer && hero) {
+    hero.addEventListener("pointermove", function (e) {
+      var rect = hero.getBoundingClientRect();
+      var x = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      var y = Math.max(0, Math.min(1, (e.clientY - rect.top) / rect.height));
+      hero.style.setProperty("--pointer-x", x * 100 + "%");
+      hero.style.setProperty("--pointer-y", y * 100 + "%");
+      hero.style.setProperty("--bg-x", (x - .5) * -12 + "px");
+      hero.style.setProperty("--bg-y", (y - .5) * -8 + "px");
+    });
+    hero.addEventListener("pointerleave", function () {
+      hero.style.setProperty("--pointer-x", "72%");
+      hero.style.setProperty("--pointer-y", "34%");
+      hero.style.setProperty("--bg-x", "0px");
+      hero.style.setProperty("--bg-y", "0px");
+    });
+  }
 
   /* ---------- Animated stat counters ---------- */
   function animateCounter(el) {
@@ -58,6 +88,7 @@
   /* ---------- Mobile nav ---------- */
   var toggle = document.getElementById("navToggle");
   var nav = document.getElementById("mainNav");
+  var navScrim = document.getElementById("navScrim");
   function closeNav() {
     document.body.classList.remove("nav-open");
     toggle.setAttribute("aria-expanded", "false");
@@ -72,6 +103,7 @@
   nav.addEventListener("click", function (e) {
     if (e.target.closest("a")) closeNav();
   });
+  if (navScrim) navScrim.addEventListener("click", closeNav);
 
   /* ---------- Scroll-spy for nav links ---------- */
   var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-link"));
@@ -92,7 +124,7 @@
   /* ---------- Reveal on scroll (with stagger) ---------- */
   document.querySelectorAll(".section-head").forEach(function (el) { el.classList.add("reveal"); });
 
-  [".card-grid", ".include-grid", ".featured-grid", ".sight-grid", ".steps", ".gallery-grid"]
+  [".assurance-grid", ".card-grid", ".include-grid", ".activity-showcase", ".sight-grid", ".steps", ".gallery-grid"]
     .forEach(function (sel) {
       document.querySelectorAll(sel).forEach(function (parent) {
         Array.prototype.forEach.call(parent.children, function (child, i) {
@@ -112,6 +144,88 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach(function (el) { revealer.observe(el); });
+
+  var steps = document.querySelector(".steps");
+  if (steps) {
+    var pathObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          steps.classList.add("path-active");
+          pathObserver.disconnect();
+        }
+      });
+    }, { threshold: .35 });
+    pathObserver.observe(steps);
+  }
+
+  /* ---------- Dimensional card spotlight and tilt ---------- */
+  function bindTilt(el) {
+    el.addEventListener("pointermove", function (e) {
+      var rect = el.getBoundingClientRect();
+      var x = (e.clientX - rect.left) / rect.width;
+      var y = (e.clientY - rect.top) / rect.height;
+      el.style.setProperty("--spot-x", x * 100 + "%");
+      el.style.setProperty("--spot-y", y * 100 + "%");
+      el.style.setProperty("--rx", (.5 - y) * 4 + "deg");
+      el.style.setProperty("--ry", (x - .5) * 5 + "deg");
+      el.classList.add("tilting");
+    });
+    el.addEventListener("pointerleave", function () {
+      el.style.setProperty("--rx", "0deg");
+      el.style.setProperty("--ry", "0deg");
+      el.classList.remove("tilting");
+    });
+  }
+  if (!reducedMotion && finePointer) {
+    document.querySelectorAll(".pkg-card, .include-card, .sight-card").forEach(bindTilt);
+  }
+
+  /* ---------- Restrained magnetic movement for primary CTAs ---------- */
+  function bindMagnetic(el) {
+    el.classList.add("is-magnetic");
+    el.addEventListener("pointermove", function (e) {
+      var rect = el.getBoundingClientRect();
+      var x = e.clientX - rect.left - rect.width / 2;
+      var y = e.clientY - rect.top - rect.height / 2;
+      el.style.transform = "translate(" + x * .08 + "px," + y * .12 + "px)";
+    });
+    el.addEventListener("pointerleave", function () { el.style.transform = ""; });
+  }
+  if (!reducedMotion && finePointer) {
+    document.querySelectorAll(".hero-ctas .btn, .activity-cta .btn, .nav-cta").forEach(bindMagnetic);
+  }
+
+  /* ---------- Package details dialog ---------- */
+  var packageDialog = document.getElementById("packageDialog");
+  var packageDialogClose = document.getElementById("packageDialogClose");
+  if (packageDialog && typeof packageDialog.showModal === "function") {
+    document.querySelectorAll(".pkg-details-btn").forEach(function (button) {
+      button.addEventListener("click", function () {
+        var card = button.closest(".pkg-card");
+        var image = card.querySelector(".pkg-media img");
+        var bookLink = card.querySelector(".pkg-actions a[target='_blank']");
+        document.getElementById("dialogTitle").textContent = card.querySelector("h3").textContent;
+        document.getElementById("dialogType").textContent = card.querySelector(".pkg-badge").textContent;
+        document.getElementById("dialogDescription").textContent = card.querySelector(".pkg-desc").textContent;
+        document.getElementById("dialogPrice").textContent = card.querySelector(".pkg-price").textContent.trim();
+        document.getElementById("dialogImage").src = image.currentSrc || image.src;
+        document.getElementById("dialogImage").alt = image.alt;
+        document.getElementById("dialogBook").href = bookLink.href;
+        packageDialog.showModal();
+        document.body.style.overflow = "hidden";
+      });
+    });
+    function closePackageDialog() { packageDialog.close(); }
+    packageDialogClose.addEventListener("click", closePackageDialog);
+    packageDialog.addEventListener("click", function (e) {
+      if (e.target === packageDialog) closePackageDialog();
+    });
+    packageDialog.addEventListener("close", function () { document.body.style.overflow = ""; });
+  }
+
+  document.querySelectorAll("img[loading='lazy']").forEach(function (img) {
+    img.decoding = "async";
+  });
 
   /* ---------- Enquiry form → WhatsApp ---------- */
   var form = document.getElementById("enquiryForm");
@@ -165,6 +279,12 @@
     lbCaption.textContent = cap ? cap.textContent : "";
     lightbox.hidden = false;
     document.body.style.overflow = "hidden";
+    if (!reducedMotion && typeof lbImg.animate === "function") {
+      lbImg.animate([
+        { opacity: 0, transform: "translateY(12px) scale(.975)", filter: "blur(4px)" },
+        { opacity: 1, transform: "none", filter: "blur(0)" }
+      ], { duration: 420, easing: "cubic-bezier(.22,1,.36,1)" });
+    }
   }
   function hideLightbox() {
     lightbox.hidden = true;
