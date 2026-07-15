@@ -14,6 +14,7 @@
   var ticking = false;
   var lastY = window.scrollY;
   var allowHeaderHide = false;
+  var scrollEndTimer = null;
   window.setTimeout(function () { allowHeaderHide = true; lastY = window.scrollY; }, 700);
 
   function paint() {
@@ -37,6 +38,11 @@
   }
   function onScroll() {
     if (!ticking) { ticking = true; requestAnimationFrame(paint); }
+    window.clearTimeout(scrollEndTimer);
+    scrollEndTimer = window.setTimeout(function () {
+      header.classList.remove("header-hidden");
+      lastY = window.scrollY;
+    }, 240);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   window.addEventListener("resize", onScroll, { passive: true });
