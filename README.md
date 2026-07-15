@@ -33,4 +33,4 @@ Then visit <http://localhost:8000>.
 
 ## Contact
 
-Bookings via WhatsApp: **+91 70900 89004**
+Bookings via WhatsApp: **+91 88841 13122**
