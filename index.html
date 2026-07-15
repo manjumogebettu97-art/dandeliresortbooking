@@ -408,25 +408,30 @@
           </label>
         </div>
         <div class="form-row">
-          <label>Travel Date
-            <input type="date" name="date" required>
+          <label>Check-in Date
+            <input type="date" name="checkin" id="checkin" required>
           </label>
+          <label>Check-out Date
+            <input type="date" name="checkout" id="checkout" required>
+          </label>
+        </div>
+        <div class="form-row">
           <label>Number of People
             <input type="number" name="people" min="1" max="200" placeholder="e.g. 4" required>
           </label>
+          <label>Package Interested In
+            <select name="package" required>
+              <option value="" disabled selected>Select a package</option>
+              <option>Camping Tents — ₹1199 pp</option>
+              <option>Eco Green Homestay — ₹1299 pp</option>
+              <option>Vardant A Shape Cottage — ₹1499 pp</option>
+              <option>Wooden Cottage for Couple — ₹1799 pp</option>
+              <option>Vantara Inn — ₹1999 pp</option>
+              <option>Nadi Teera Cottages — ₹2999 pp</option>
+              <option>Not sure yet — need help choosing</option>
+            </select>
+          </label>
         </div>
-        <label>Package Interested In
-          <select name="package" required>
-            <option value="" disabled selected>Select a package</option>
-            <option>Camping Tents — ₹1199 pp</option>
-            <option>Eco Green Homestay — ₹1299 pp</option>
-            <option>Vardant A Shape Cottage — ₹1499 pp</option>
-            <option>Wooden Cottage for Couple — ₹1799 pp</option>
-            <option>Vantara Inn — ₹1999 pp</option>
-            <option>Nadi Teera Cottages — ₹2999 pp</option>
-            <option>Not sure yet — need help choosing</option>
-          </select>
-        </label>
         <label>Message
           <textarea name="message" rows="3" placeholder="Anything else we should know? (optional)"></textarea>
         </label>

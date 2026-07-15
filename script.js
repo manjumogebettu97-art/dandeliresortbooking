@@ -115,6 +115,18 @@
 
   /* ---------- Enquiry form → WhatsApp ---------- */
   var form = document.getElementById("enquiryForm");
+  var checkin = document.getElementById("checkin");
+  var checkout = document.getElementById("checkout");
+
+  // Don't allow past dates, and keep check-out on/after check-in.
+  var todayISO = new Date().toISOString().split("T")[0];
+  checkin.min = todayISO;
+  checkout.min = todayISO;
+  checkin.addEventListener("change", function () {
+    checkout.min = checkin.value || todayISO;
+    if (checkout.value && checkout.value < checkin.value) checkout.value = checkin.value;
+  });
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     if (!form.reportValidity()) return;
@@ -125,7 +137,8 @@
       "",
       "Name: " + data.get("name"),
       "Mobile: " + data.get("mobile"),
-      "Travel Date: " + data.get("date"),
+      "Check-in: " + data.get("checkin"),
+      "Check-out: " + data.get("checkout"),
       "People: " + data.get("people"),
       "Package: " + data.get("package")
     ];
