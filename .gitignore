@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Raw source photos (unoptimized originals; optimized copies live in images/)
+WhatsApp Image *.jpeg
+
+# Editor / build scratch
+*.bak
+shot.html
+shot2.html
+
+# Claude Code local config
+.claude/
