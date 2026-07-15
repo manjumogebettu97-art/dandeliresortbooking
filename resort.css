@@ -1,0 +1,260 @@
+/* ============================================================
+   Resort detail pages — resort.css
+   Extends style.css (same palette, fonts, buttons, footer).
+   ============================================================ */
+
+/* ---------- Back link in header ---------- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .82rem;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .9);
+  text-decoration: none;
+  transition: color .25s ease;
+}
+.back-link:hover { color: var(--gold); }
+.site-header.scrolled .back-link { color: var(--charcoal); }
+.site-header.scrolled .back-link:hover { color: var(--gold-deep); }
+.back-link svg { width: 1.1em; height: 1.1em; }
+
+/* ---------- Resort hero ---------- */
+.resort-hero {
+  position: relative;
+  min-height: 84vh;
+  display: flex;
+  align-items: flex-end;
+  color: var(--white);
+  overflow: hidden;
+}
+.rh-bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  animation: heroZoom 16s ease-out forwards;
+}
+.rh-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(34, 34, 34, .5) 0%, rgba(34, 34, 34, .25) 40%, rgba(34, 34, 34, .82) 100%);
+}
+.rh-content {
+  position: relative;
+  z-index: 1;
+  padding: 9rem 0 3.4rem;
+  max-width: 860px;
+}
+.rh-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  border: 1px solid rgba(255, 255, 255, .38);
+  padding: .5rem 1.3rem;
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+}
+.resort-hero h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+  font-weight: 500;
+  line-height: 1.05;
+  margin-bottom: .8rem;
+  text-shadow: 0 4px 28px rgba(34, 34, 34, .4);
+}
+.resort-hero h1 em { font-style: italic; color: var(--gold); }
+.rh-tagline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, .92);
+  max-width: 560px;
+  margin-bottom: 1.6rem;
+}
+.rh-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  margin-bottom: 2rem;
+  font-size: .9rem;
+  color: rgba(255, 255, 255, .85);
+}
+.rh-meta span { display: inline-flex; align-items: center; gap: .5rem; }
+.rh-meta svg { width: 1.1em; height: 1.1em; color: var(--gold); flex: none; }
+.rh-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* ---------- Spec strip ---------- */
+.spec-strip { background: var(--charcoal); color: var(--white); }
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.spec-item {
+  padding: 1.7rem 1.8rem;
+  border-left: 1px solid rgba(255, 255, 255, .1);
+}
+.spec-item:first-child { border-left: 0; }
+.spec-item strong {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1.1;
+  margin-bottom: .2rem;
+}
+.spec-item span {
+  font-size: .7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .7);
+}
+
+/* ---------- About ---------- */
+.about-wrap {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+.about-copy .eyebrow { justify-content: flex-start; }
+.about-copy .eyebrow::after { display: none; }
+.about-copy h2 {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 1rem;
+  line-height: 1.15;
+}
+.about-copy p { color: var(--grey); font-weight: 300; margin-bottom: 1rem; }
+.about-media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+/* ---------- Room feature list (inside reused .pkg-card) ---------- */
+.room-features {
+  list-style: none;
+  display: grid;
+  gap: .4rem;
+  margin: 0 0 1.1rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+}
+.room-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+  font-size: .88rem;
+  font-weight: 300;
+  color: var(--grey);
+}
+.room-features svg { width: 1rem; height: 1rem; color: var(--gold-deep); flex: none; margin-top: .25rem; }
+.pkg-price .from {
+  display: block;
+  font-family: var(--font-body);
+  font-size: .62rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: -.1rem;
+}
+
+/* ---------- Amenities (reuse .sight-grid look on light bg) ---------- */
+.amenity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.4rem;
+}
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: .9rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 1.1rem 1.3rem;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.amenity-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); border-color: rgba(201, 167, 106, .5); }
+.amenity-item svg { width: 1.5rem; height: 1.5rem; color: var(--gold-deep); flex: none; }
+.amenity-item span { font-size: .95rem; font-weight: 400; color: var(--charcoal); }
+
+/* ---------- Activity chips ---------- */
+.activity-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  justify-content: center;
+}
+.activity-chips li {
+  list-style: none;
+  background: var(--white);
+  border: 1px solid var(--gold);
+  color: var(--gold-deep);
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: .55rem 1.2rem;
+  border-radius: 999px;
+}
+
+/* ---------- Location ---------- */
+.locate-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.6rem;
+  align-items: center;
+}
+.locate-copy h2 {
+  font-family: var(--font-head);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 1rem;
+}
+.locate-list { list-style: none; display: grid; gap: 1rem; }
+.locate-list li { display: flex; gap: .9rem; align-items: flex-start; }
+.locate-list svg { width: 1.4rem; height: 1.4rem; color: var(--gold-deep); flex: none; }
+.locate-list strong { display: block; font-size: .72rem; letter-spacing: 2px; text-transform: uppercase; color: var(--grey); }
+.locate-list span { color: var(--charcoal); font-weight: 400; }
+
+/* ---------- Final CTA band ---------- */
+.resort-cta {
+  background:
+    radial-gradient(1100px 480px at 82% -8%, rgba(201, 167, 106, .14), transparent 60%),
+    var(--charcoal);
+  color: var(--white);
+  text-align: center;
+}
+.resort-cta h2 {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 500;
+  margin-bottom: .8rem;
+}
+.resort-cta p { color: rgba(255, 255, 255, .75); font-weight: 300; margin-bottom: 2rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .spec-grid { grid-template-columns: 1fr 1fr; }
+  .spec-item:nth-child(3) { border-left: 0; }
+  .about-wrap, .locate-wrap { grid-template-columns: 1fr; gap: 2.2rem; }
+  .about-media { order: -1; }
+  .about-media img { aspect-ratio: 16 / 10; }
+}
+@media (max-width: 640px) {
+  .resort-hero { min-height: 78vh; }
+  .rh-content { padding-top: 7rem; }
+  .rh-ctas { flex-direction: column; align-items: stretch; }
+  .rh-ctas .btn { width: 100%; }
+  .spec-item { padding: 1.3rem; }
+}

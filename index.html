@@ -84,24 +84,34 @@
   </div>
 
   <!-- ============ BOOKING ASSURANCE ============ -->
-  <section class="assurance" aria-label="Booking benefits">
-    <div class="container assurance-grid">
-      <article class="assurance-item reveal">
-        <span class="assurance-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.8 3.2 8 7.5 9.5 4.3-1.5 7.5-4.7 7.5-9.5V6L12 3Z"/><path d="m8.8 12 2.1 2.1 4.4-4.5"/></svg></span>
-        <div><strong>Direct Booking</strong><span>Clear pricing, no middlemen</span></div>
-      </article>
-      <article class="assurance-item reveal">
-        <span class="assurance-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16a8 8 0 0 1-16 0Z"/><path d="M7 12V9h10v3M9 6h6"/></svg></span>
-        <div><strong>Meals Included</strong><span>Breakfast, lunch and dinner</span></div>
-      </article>
-      <article class="assurance-item reveal">
-        <span class="assurance-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15c2.3 0 2.3 1.8 4.6 1.8s2.3-1.8 4.6-1.8 2.3 1.8 4.6 1.8S19.1 15 21 15"/><path d="m7 12 5-7 5 7M12 5v9"/></svg></span>
-        <div><strong>Adventure Ready</strong><span>River and in-house activities</span></div>
-      </article>
-      <article class="assurance-item reveal">
-        <span class="assurance-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
-        <div><strong>Local Assistance</strong><span>Quick support on WhatsApp</span></div>
-      </article>
+  <section class="assurance" id="booking-confidence" aria-label="Booking benefits">
+    <div class="container assurance-shell">
+      <div class="assurance-visual reveal">
+        <img src="images/hero-generated.jpg" alt="Premium forest cottages illuminated at sunset in Dandeli" loading="lazy" decoding="async">
+        <div class="assurance-visual-copy">
+          <span class="assurance-eyebrow">Direct booking · Local care</span>
+          <h2>Everything clear.<br><em>Nothing hidden.</em></h2>
+          <p>One booking, every essential arranged by our Dandeli team.</p>
+        </div>
+      </div>
+      <div class="assurance-grid">
+        <article class="assurance-item reveal">
+          <span class="assurance-mark" aria-hidden="true">01</span>
+          <div><strong>Direct Rates</strong><span>Transparent pricing, no middlemen</span></div>
+        </article>
+        <article class="assurance-item reveal">
+          <span class="assurance-mark" aria-hidden="true">02</span>
+          <div><strong>All Meals</strong><span>Breakfast through dinner covered</span></div>
+        </article>
+        <article class="assurance-item reveal">
+          <span class="assurance-mark" aria-hidden="true">03</span>
+          <div><strong>Activities</strong><span>River and resort plans arranged</span></div>
+        </article>
+        <article class="assurance-item reveal">
+          <span class="assurance-mark" aria-hidden="true">04</span>
+          <div><strong>Local Help</strong><span>Responsive WhatsApp assistance</span></div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -109,50 +119,83 @@
   <section class="section" id="packages">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Stay Packages</span>
+        <span class="eyebrow">Featured Resorts</span>
+        <h2>Our Handpicked Resorts</h2>
+        <p>Explore full photo galleries, rooms and amenities — tap View Details for the complete resort page.</p>
+      </div>
+
+      <div class="card-grid">
+        <!-- Nadi Teera Cottages -->
+        <article class="pkg-card reveal featured-pkg">
+          <div class="pkg-media">
+            <a href="nadi-teera.html" aria-label="View Nadi Teera Cottages details">
+              <img src="images/naditeera-cottage.jpg" alt="Nadi Teera red-roof cottage with private sit-out amid gardens" loading="lazy">
+            </a>
+            <span class="pkg-badge badge-gold">Premium Riverside</span>
+          </div>
+          <div class="pkg-body">
+            <h3>Nadi Teera Cottages</h3>
+            <p class="pkg-desc">Premium riverside cottages with buffet meals, pool and bonfire — our finest stay in Ganeshgudi.</p>
+            <div class="pkg-meta">
+              <span class="pkg-price"><small>From</small> ₹1500 <small>/ person</small></span>
+            </div>
+            <div class="pkg-actions">
+              <a href="nadi-teera.html" class="btn btn-ghost">View Details</a>
+              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20Nadi%20Teera%20Cottages." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Vanatara Inn -->
+        <article class="pkg-card reveal">
+          <div class="pkg-media">
+            <a href="vanatara-inn.html" aria-label="View Vanatara Inn details">
+              <img src="images/vantara-inn.jpg" alt="Aerial view of Vanatara Inn cottages and swimming pool amid palm greenery" loading="lazy">
+            </a>
+            <span class="pkg-badge">Poolside Resort</span>
+          </div>
+          <div class="pkg-body">
+            <h3>Vanatara Inn</h3>
+            <p class="pkg-desc">Poolside cottages and comfort rooms with food court, rafting, zorbing and campfire nights.</p>
+            <div class="pkg-meta">
+              <span class="pkg-price">Poolside Stay</span>
+            </div>
+            <div class="pkg-actions">
+              <a href="vanatara-inn.html" class="btn btn-ghost">View Details</a>
+              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20Vanatara%20Inn." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Eco Green Dandeli -->
+        <article class="pkg-card reveal">
+          <div class="pkg-media">
+            <a href="eco-green.html" aria-label="View Eco Green Dandeli details">
+              <img src="images/eco-homestay.jpg" alt="Eco Green cottages with garden pathway and lanterns" loading="lazy">
+            </a>
+            <span class="pkg-badge">Jungle Stay</span>
+          </div>
+          <div class="pkg-body">
+            <h3>Eco Green Dandeli</h3>
+            <p class="pkg-desc">Luxury jungle stay with an infinity pool over the forest, deluxe rooms, tents and dormitory.</p>
+            <div class="pkg-meta">
+              <span class="pkg-price"><small>From</small> ₹1400 <small>/ person</small></span>
+            </div>
+            <div class="pkg-actions">
+              <a href="eco-green.html" class="btn btn-ghost">View Details</a>
+              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20Eco%20Green%20Dandeli." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-head" style="margin-top:4.5rem">
+        <span class="eyebrow">Cottages &amp; Camping</span>
         <h2>Choose Your Stay Package</h2>
         <p>All packages include meals, river activities, trekking and in-house activities.</p>
       </div>
 
       <div class="card-grid">
-        <!-- Camping Tents -->
-        <article class="pkg-card reveal">
-          <div class="pkg-media">
-            <img src="images/pkg-camping.webp" alt="Camping tents under a covered pavilion at night" loading="lazy">
-            <span class="pkg-badge">Camping</span>
-          </div>
-          <div class="pkg-body">
-            <h3>Camping Tents</h3>
-            <p class="pkg-desc">Sheltered campsite tents with bonfire nights — the classic Dandeli adventure on a budget.</p>
-            <div class="pkg-meta">
-              <span class="pkg-price">₹1199 <small>/ person</small></span>
-            </div>
-            <div class="pkg-actions">
-              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
-              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Camping%20Tents%20package%20(%E2%82%B91199%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Eco Green Homestay -->
-        <article class="pkg-card reveal">
-          <div class="pkg-media">
-            <img src="images/eco-homestay.jpg" alt="Eco Green homestay cottages with garden pathway and lanterns" loading="lazy">
-            <span class="pkg-badge">Homestay</span>
-          </div>
-          <div class="pkg-body">
-            <h3>Eco Green Homestay</h3>
-            <p class="pkg-desc">Best for budget stays and group trips — homely rooms surrounded by greenery.</p>
-            <div class="pkg-meta">
-              <span class="pkg-price">₹1299 <small>/ person</small></span>
-            </div>
-            <div class="pkg-actions">
-              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
-              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Eco%20Green%20Homestay%20package%20(%E2%82%B91299%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
-            </div>
-          </div>
-        </article>
-
         <!-- Duplex Triangle Cottage -->
         <article class="pkg-card reveal">
           <div class="pkg-media">
@@ -168,6 +211,25 @@
             <div class="pkg-actions">
               <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
               <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Duplex%20Triangle%20Cottage%20(6%20to%2012%20sharing%2C%20%E2%82%B91299%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Camping Tents -->
+        <article class="pkg-card reveal">
+          <div class="pkg-media">
+            <img src="images/pkg-camping.webp" alt="Camping tents under a covered pavilion at night" loading="lazy">
+            <span class="pkg-badge">Camping</span>
+          </div>
+          <div class="pkg-body">
+            <h3>Camping Tents</h3>
+            <p class="pkg-desc">Sheltered campsite tents with bonfire nights — the classic Dandeli adventure on a budget.</p>
+            <div class="pkg-meta">
+              <span class="pkg-price">₹1199 <small>/ person</small></span>
+            </div>
+            <div class="pkg-actions">
+              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
+              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Camping%20Tents%20package%20(%E2%82%B91199%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
             </div>
           </div>
         </article>
@@ -209,44 +271,6 @@
             </div>
           </div>
         </article>
-
-        <!-- Vantara Inn -->
-        <article class="pkg-card reveal">
-          <div class="pkg-media">
-            <img src="images/vantara-inn.jpg" alt="Aerial view of Vantara Inn cottages and swimming pool amid palm greenery" loading="lazy">
-            <span class="pkg-badge">Inn / Resort Stay</span>
-          </div>
-          <div class="pkg-body">
-            <h3>Vantara Inn</h3>
-            <p class="pkg-desc">Comfort resort stay with the complete activity package and evening entertainment.</p>
-            <div class="pkg-meta">
-              <span class="pkg-price">₹1999 <small>/ person</small></span>
-            </div>
-            <div class="pkg-actions">
-              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
-              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Vantara%20Inn%20package%20(%E2%82%B91999%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Nadi Teera Cottages -->
-        <article class="pkg-card reveal featured-pkg">
-          <div class="pkg-media">
-            <img src="images/naditeera-cottage.jpg" alt="Nadi Teera red-roof cottage with private sit-out amid gardens" loading="lazy">
-            <span class="pkg-badge badge-gold">Premium Cottage</span>
-          </div>
-          <div class="pkg-body">
-            <h3>Nadi Teera Cottages</h3>
-            <p class="pkg-desc">Premium riverside cottage experience closest to nature — our finest stay.</p>
-            <div class="pkg-meta">
-              <span class="pkg-price">₹2999 <small>/ person</small></span>
-            </div>
-            <div class="pkg-actions">
-              <button type="button" class="btn btn-ghost pkg-details-btn">View Details</button>
-              <a href="https://wa.me/918884113122?text=Hi!%20I%20want%20to%20book%20the%20Nadi%20Teera%20Cottages%20package%20(%E2%82%B92999%20pp)." class="btn btn-primary" target="_blank" rel="noopener">Book Now</a>
-            </div>
-          </div>
-        </article>
       </div>
     </div>
   </section>
@@ -262,27 +286,39 @@
 
       <div class="include-grid">
         <div class="include-card reveal">
-          <div class="include-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16a8 8 0 0 1-16 0Z"/><path d="M9 8c0-1.4.9-1.8.9-3.2M14 8c0-1.4.9-1.8.9-3.2"/></svg></div>
-          <h3>3 Meals</h3>
-          <p>Veg and non-veg meals included — breakfast, lunch and dinner.</p>
+          <div class="include-media"><img src="images/inclusion-meals.png" alt="Indian vegetarian and non-vegetarian meals served at a forest resort" loading="lazy" decoding="async"></div>
+          <div class="include-content">
+            <span class="include-index">01</span>
+            <h3>3 Meals</h3>
+            <p>Veg and non-veg meals included — breakfast, lunch and dinner.</p>
+          </div>
         </div>
         <div class="include-card reveal">
-          <div class="include-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 3-2"/><path d="M3 15c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 3-2"/></svg></div>
-          <h3>3 River Activities</h3>
-          <p>Boating, kayaking and zorbing on the Kali river.</p>
+          <div class="include-media"><img src="images/inclusion-river.png" alt="Guests kayaking with boating and zorbing on the Kali river" loading="lazy" decoding="async"></div>
+          <div class="include-content">
+            <span class="include-index">02</span>
+            <h3>3 River Activities</h3>
+            <p>Boating, kayaking and zorbing on the Kali river.</p>
+          </div>
         </div>
         <div class="include-card reveal">
-          <div class="include-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 20 6-11 4 7 3-5 5 9H3Z"/></svg></div>
-          <h3>Trekking</h3>
-          <p>Guided Dandeli jungle trekking experience included in the package.</p>
+          <div class="include-media"><img src="images/inclusion-trekking.png" alt="Guided group trekking through a sunlit Dandeli forest trail" loading="lazy" decoding="async"></div>
+          <div class="include-content">
+            <span class="include-index">03</span>
+            <h3>Trekking</h3>
+            <p>Guided Dandeli jungle trekking experience included in the package.</p>
+          </div>
         </div>
         <div class="include-card reveal">
-          <div class="include-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="M18.5 15.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7.7-2Z"/></svg></div>
-          <h3>In-House Activities</h3>
-          <ul class="chip-list">
-            <li>Swimming Pool</li><li>Rain Dance</li><li>DJ Music</li><li>Archery</li>
-            <li>Carrom</li><li>Badminton</li><li>Table Tennis</li><li>Bonfire</li>
-          </ul>
+          <div class="include-media"><img src="images/inclusion-resort-activities.png" alt="Illuminated resort pool, rain dance fountains and bonfire at blue hour" loading="lazy" decoding="async"></div>
+          <div class="include-content">
+            <span class="include-index">04</span>
+            <h3>In-House Activities</h3>
+            <ul class="chip-list">
+              <li>Swimming Pool</li><li>Rain Dance</li><li>DJ Music</li><li>Archery</li>
+              <li>Carrom</li><li>Badminton</li><li>Table Tennis</li><li>Bonfire</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -305,7 +341,6 @@
           <div class="activity-shade"></div>
           <span class="activity-number">01</span>
           <div class="activity-copy">
-            <span class="activity-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17c2.3 0 2.3 1.7 4.6 1.7s2.3-1.7 4.6-1.7 2.3 1.7 4.6 1.7S19.1 17 21 17"/><path d="m6 14 6-8 6 8M12 6v9"/></svg></span>
             <p>River Kali</p>
             <h3>Kayak. Boat. Explore.</h3>
             <ul><li>Kayaking</li><li>Boating</li><li>Zorbing</li></ul>
@@ -317,7 +352,6 @@
           <div class="activity-shade"></div>
           <span class="activity-number">02</span>
           <div class="activity-copy">
-            <span class="activity-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 12h4l-3 7h12l-3-7h4L12 3Z"/><path d="M12 19v3"/></svg></span>
             <p>Into the Wild</p>
             <h3>Forest Trails &amp; Fresh Air</h3>
           </div>
@@ -328,7 +362,6 @@
           <div class="activity-shade"></div>
           <span class="activity-number">03</span>
           <div class="activity-copy">
-            <span class="activity-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2.5 3 4 5.4 4 8a4 4 0 0 1-8 0c0-1.7.9-3.4 2.2-5.3.1 2.3.8 3.8 1.8 4.8.8-2.2.7-4.8 0-7.5Z"/><path d="M4 20c2 0 2 1 4 1s2-1 4-1 2 1 4 1 2-1 4-1"/></svg></span>
             <p>After Sunset</p>
             <h3>Bonfire, Music &amp; Rain Dance</h3>
           </div>
@@ -352,28 +385,23 @@
       </div>
 
       <div class="sight-grid">
-        <div class="sight-card reveal">
-          <span class="sight-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 10l7 11 7-11-7-7Z"/><path d="M5 10h14"/></svg></span>
+        <div class="sight-card reveal" data-place="01">
           <h3>Syntheri Rocks</h3>
           <p>A towering monolithic granite rock carved by the Kaneri river deep inside the sanctuary.</p>
         </div>
-        <div class="sight-card reveal">
-          <span class="sight-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V6a2 2 0 0 1 2-2h3v16"/><path d="M12 13c2 0 2 1.6 4 1.6s2-1.6 4-1.6M12 17.5c2 0 2 1.6 4 1.6s2-1.6 4-1.6"/></svg></span>
+        <div class="sight-card reveal" data-place="02">
           <h3>Supa Dam</h3>
           <p>Karnataka&rsquo;s tallest dam on the Kali river with sweeping backwater views.</p>
         </div>
-        <div class="sight-card reveal">
-          <span class="sight-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19C5 9 12 4 20 4c0 8-5 15-15 15Z"/><path d="M5 19c3-6 7-9 11-11"/></svg></span>
+        <div class="sight-card reveal" data-place="03">
           <h3>Moulangi Eco Park</h3>
           <p>A serene riverside eco park — perfect for picnics and birdwatching.</p>
         </div>
-        <div class="sight-card reveal">
-          <span class="sight-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M3 17.5c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 3-2"/></svg></span>
+        <div class="sight-card reveal" data-place="04">
           <h3>Backwaters</h3>
           <p>Calm Kali river backwaters ideal for sunset views and photographs.</p>
         </div>
-        <div class="sight-card reveal">
-          <span class="sight-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="6"/><circle cx="12" cy="10" r="1.2"/><path d="M12 4v12M6.8 7l10.4 6M17.2 7 6.8 13M12 16l-4 5M12 16l4 5"/></svg></span>
+        <div class="sight-card reveal" data-place="05">
           <h3>Disney Park</h3>
           <p>A fun local park the kids will love — an easy family stop.</p>
         </div>
@@ -397,25 +425,21 @@
       <ol class="steps" aria-label="Four booking steps">
         <li class="step reveal">
           <span class="step-num">1</span>
-          <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-6 8 6v11"/><path d="M8 20v-6h8v6M3 20h18"/></svg></span>
           <h3>Choose Your Stay</h3>
           <p>Select your preferred package — homestay, cottage, inn, premium cottage or camping tents.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">2</span>
-          <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="1"/><path d="M7 3v4M17 3v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></span>
           <h3>Select Date &amp; People</h3>
           <p>Share your travel date and the number of people joining.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">3</span>
-          <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/><path d="m14.5 7.5 1.5 1.5 3-3"/></svg></span>
           <h3>Confirm on WhatsApp</h3>
           <p>Confirm availability and booking details through WhatsApp.</p>
         </li>
         <li class="step reveal">
           <span class="step-num">4</span>
-          <span class="step-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 12h4l-3 7h12l-3-7h4L12 3Z"/><path d="M3 21c2 0 2-1 4-1s2 1 4 1 2-1 4-1 2 1 4 1 2-1 2-1"/></svg></span>
           <h3>Enjoy Your Dandeli Trip</h3>
           <p>Arrive, relax and enjoy your stay, food, activities and sightseeing.</p>
         </li>
