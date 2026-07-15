@@ -13,8 +13,8 @@
   --charcoal: #222222;
   --grey: #6B7280;
   --border: #E5E7EB;
-  --wa: #25d366;
-  --wa-dark: #128c7e;
+  --wa: #C9A76A;
+  --wa-dark: #B8904F;
   --shadow: 0 18px 44px rgba(34, 34, 34, 0.10);
   --shadow-sm: 0 6px 20px rgba(34, 34, 34, 0.06);
   --font-head: "Cormorant Garamond", "Times New Roman", Georgia, serif;
@@ -72,7 +72,7 @@ img { max-width: 100%; display: block; }
 
 .btn-whatsapp { background: var(--charcoal); color: var(--white); }
 .btn-whatsapp .ico { color: var(--wa); }
-.btn-whatsapp:hover { background: #000; }
+.btn-whatsapp:hover { background: #222222; }
 
 .btn-ghost { background: transparent; color: var(--charcoal); border-color: var(--charcoal); }
 .btn-ghost:hover { background: var(--charcoal); color: var(--white); }
@@ -208,7 +208,7 @@ textarea:focus-visible, summary:focus-visible {
 @keyframes heroZoom { to { transform: scale(1); } }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(20, 18, 14, .58) 0%, rgba(20, 18, 14, .30) 45%, rgba(20, 18, 14, .74) 100%);
+  background: linear-gradient(180deg, rgba(34, 34, 34, .58) 0%, rgba(34, 34, 34, .30) 45%, rgba(34, 34, 34, .74) 100%);
 }
 .hero-content {
   position: relative;
@@ -233,7 +233,7 @@ textarea:focus-visible, summary:focus-visible {
   font-weight: 500;
   line-height: 1.06;
   margin-bottom: 1.2rem;
-  text-shadow: 0 4px 28px rgba(0, 0, 0, .35);
+  text-shadow: 0 4px 28px rgba(34, 34, 34, .35);
 }
 .hero h1 .accent { color: var(--gold); font-style: italic; }
 .hero-sub {
@@ -692,7 +692,7 @@ textarea:focus-visible, summary:focus-visible {
   position: absolute;
   inset: auto 0 0 0;
   padding: 1.8rem 1.1rem .85rem;
-  background: linear-gradient(transparent, rgba(20, 18, 14, .82));
+  background: linear-gradient(transparent, rgba(34, 34, 34, .82));
   color: var(--white);
   font-size: .7rem;
   font-weight: 500;
@@ -791,10 +791,10 @@ textarea:focus-visible, summary:focus-visible {
   color: var(--white);
   display: grid;
   place-items: center;
-  box-shadow: 0 10px 28px rgba(18, 140, 126, .4);
+  box-shadow: 0 10px 28px rgba(184, 144, 79, .4);
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.wa-float:hover { transform: scale(1.07); box-shadow: 0 12px 34px rgba(18, 140, 126, .55); }
+.wa-float:hover { transform: scale(1.07); box-shadow: 0 12px 34px rgba(184, 144, 79, .55); }
 .wa-float svg { width: 1.9rem; height: 1.9rem; }
 
 /* ---------- Lightbox ---------- */
@@ -802,7 +802,7 @@ textarea:focus-visible, summary:focus-visible {
   position: fixed;
   inset: 0;
   z-index: 200;
-  background: rgba(20, 18, 14, .94);
+  background: rgba(34, 34, 34, .94);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -813,7 +813,7 @@ textarea:focus-visible, summary:focus-visible {
 .lightbox img {
   max-width: min(92vw, 1100px);
   max-height: 78vh;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, .55);
+  box-shadow: 0 24px 70px rgba(34, 34, 34, .55);
 }
 .lb-caption {
   color: var(--white);
@@ -947,7 +947,7 @@ textarea:focus-visible, summary:focus-visible {
 /* Gold shimmer on the accent words */
 @keyframes shimmer { to { background-position: -200% center; } }
 .hero h1 .accent {
-  background: linear-gradient(110deg, var(--gold) 35%, #f4e6c6 50%, var(--gold) 65%);
+  background: linear-gradient(110deg, var(--gold) 35%, #FFFFFF 50%, var(--gold) 65%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
