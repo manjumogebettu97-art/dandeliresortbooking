@@ -147,6 +147,15 @@ textarea:focus-visible, summary:focus-visible {
   transition: color .25s ease;
 }
 .site-header.scrolled .brand { color: var(--charcoal); }
+.brand-logo {
+  display: block;
+  width: auto;
+  height: 60px;
+  max-width: min(230px, 56vw);
+  object-fit: contain;
+  transition: filter .25s ease, opacity .25s ease;
+}
+.site-header.scrolled .brand-logo { filter: invert(1); }
 .brand-icon { width: 32px; height: 32px; color: var(--gold); }
 .brand-text {
   font-family: var(--font-head);
@@ -788,6 +797,7 @@ textarea:focus-visible, summary:focus-visible {
   padding: 4.2rem 0 3rem;
 }
 .brand.light { color: var(--white); }
+.footer-brand .brand-logo { height: 58px; max-width: 240px; }
 .footer-brand p { margin-top: 1rem; font-size: .92rem; font-weight: 300; max-width: 300px; letter-spacing: .2px; }
 
 .site-footer h3 {
@@ -1039,14 +1049,36 @@ textarea:focus-visible, summary:focus-visible {
 
 /* Amenity marquee ribbon */
 .marquee {
-  background: linear-gradient(180deg, #CBAA6E, #B8904F);
+  position: relative;
+  background: linear-gradient(100deg, #A87E3E 0%, #C9A76A 17%, #F1DEB2 33%, #CBAA6E 49%, #B8904F 66%, #EAD9AE 83%, #B8904F 100%);
+  background-size: 220% auto;
+  animation: marqueeSheen 7s linear infinite;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, .32);
-  border-bottom: 1px solid rgba(255, 255, 255, .32);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  border-top: 1px solid rgba(255, 255, 255, .45);
+  border-bottom: 1px solid rgba(120, 85, 30, .35);
+  box-shadow: inset 0 2px 3px rgba(255, 255, 255, .38), inset 0 -10px 22px rgba(120, 85, 30, .22);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+@keyframes marqueeSheen { to { background-position: 220% center; } }
+/* moving glint that sweeps across the gold band */
+.marquee::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, .55) 48%, rgba(255, 255, 255, .12) 55%, transparent 64%);
+  transform: translateX(-120%);
+  animation: marqueeGlint 6.5s ease-in-out infinite;
+}
+@keyframes marqueeGlint {
+  0% { transform: translateX(-120%); }
+  55%, 100% { transform: translateX(120%); }
 }
 .marquee-track {
+  position: relative;
+  z-index: 2;
   display: inline-flex;
   align-items: center;
   gap: 2.4rem;
@@ -1104,6 +1136,8 @@ textarea:focus-visible, summary:focus-visible {
   .hero-kicker, .hero h1, .hero-sub, .hero-ctas, .hero-stats li, .scroll-cue { animation: none; }
   .hero h1 .accent { animation: none; background: none; -webkit-text-fill-color: currentColor; color: var(--gold); }
   .marquee-track { animation: none; }
+  .marquee { animation: none; background-position: center; }
+  .marquee::before { animation: none; opacity: 0; }
   .cue-line::after { animation: none; }
   .lightbox:not([hidden]), .lightbox:not([hidden]) img { animation: none; }
   .reveal { transition-delay: 0s; }
@@ -1120,6 +1154,20 @@ textarea:focus-visible, summary:focus-visible {
 @media (max-width: 640px) {
   .container { width: 90%; }
 
+  .brand-logo { height: 50px; max-width: 180px; }
+  .site-header .brand {
+    width: 34px;
+    height: 58px;
+    overflow: hidden;
+    flex: 0 0 34px;
+  }
+  .site-header .brand-logo {
+    height: 78px;
+    width: auto;
+    max-width: none;
+    transform: translateX(-3px);
+  }
+  .footer-brand .brand-logo { height: 54px; max-width: 210px; }
   .brand-text { font-size: 1.28rem; }
   .brand-text em { font-size: .55rem; letter-spacing: 2.6px; }
   .brand-icon { width: 27px; height: 27px; }
