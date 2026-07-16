@@ -9,5 +9,9 @@ WhatsApp Image *.jpeg
 shot.html
 shot2.html
 
+# Local QA / test scripts (not part of the site)
+.qa-deep.mjs
+*.qa.mjs
+
 # Claude Code local config
 .claude/
