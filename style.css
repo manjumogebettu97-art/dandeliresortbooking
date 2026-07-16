@@ -1138,12 +1138,14 @@ html.sb-fallback .reveal { opacity: 1 !important; transform: none !important; }
 .booking-modal {
   border: 0;
   padding: 0;
+  margin: auto;
   width: min(440px, 92vw);
+  max-height: calc(100vh - 2rem);
   border-radius: 12px;
   background: var(--white);
   color: var(--body);
   box-shadow: var(--shadow);
-  overflow: hidden;
+  overflow-y: auto;
 }
 .booking-modal::backdrop {
   background: rgba(20, 18, 14, .55);
@@ -1702,6 +1704,7 @@ body::before {
 .package-dialog {
   width: min(980px, calc(100% - 2rem));
   max-height: min(760px, calc(100vh - 2rem));
+  margin: auto;
   padding: 0;
   border: 0;
   border-radius: 8px;
