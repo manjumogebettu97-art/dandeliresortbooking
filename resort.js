@@ -3,6 +3,26 @@
   "use strict";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Loading screen */
+  var siteLoader = document.getElementById("siteLoader");
+  if (siteLoader) {
+    var loaderStartedAt = performance.now();
+    var loaderDismissQueued = false;
+    var dismissLoader = function () {
+      if (loaderDismissQueued) return;
+      loaderDismissQueued = true;
+      var minimumDisplay = reduced ? 250 : 900;
+      var delay = Math.max(0, minimumDisplay - (performance.now() - loaderStartedAt));
+      window.setTimeout(function () {
+        siteLoader.classList.add("is-hidden");
+        document.body.classList.remove("is-loading");
+      }, delay);
+    };
+    if (document.readyState === "complete") dismissLoader();
+    else window.addEventListener("load", dismissLoader, { once: true });
+    window.setTimeout(dismissLoader, 2500);
+  }
+
   /* Sticky header */
   var header = document.querySelector(".site-header");
   var progressBar = document.getElementById("progressBar");
@@ -223,4 +243,7 @@
   /* Footer year */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
+
+  /* Signal the inline failsafe that the main script ran successfully */
+  document.documentElement.classList.add("sb-ready");
 })();

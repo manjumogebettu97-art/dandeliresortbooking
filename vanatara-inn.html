@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js');window.setTimeout(function(){if(document.documentElement.classList.contains('sb-ready'))return;document.documentElement.classList.add('sb-fallback');var l=document.getElementById('siteLoader');if(l)l.classList.add('is-hidden');if(document.body)document.body.classList.remove('is-loading');},4000);</script>
   <title>Vanatara Inn, Dandeli | Poolside Cottages &amp; Adventure Packages</title>
   <meta name="description" content="Vanatara Inn — poolside cottages and comfort rooms in Pradhani, Dandeli with pool, food court, private sit-outs, river rafting, kayaking, zorbing and campfire nights. Book on WhatsApp.">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -31,7 +31,15 @@
   {"@context":"https://schema.org","@type":"LodgingBusiness","name":"Vanatara Inn","description":"Poolside cottages and comfort rooms with dining and activity packages in Pradhani, Dandeli.","telephone":"+91-88841-13122","address":{"@type":"PostalAddress","addressLocality":"Pradhani, Dandeli","addressRegion":"Karnataka","addressCountry":"IN"},"priceRange":"Contact for current group rates"}
   </script>
 </head>
-<body>
+<body class="is-loading">
+
+  <div class="site-loader" id="siteLoader" role="status" aria-live="polite" aria-label="Loading Dandeli Resorts Booking">
+    <div class="loader-orbit" aria-hidden="true">
+      <span class="loader-icon"><img src="images/logo-white.png" alt="" width="900" height="262"></span>
+    </div>
+    <div class="loader-brand" aria-hidden="true"><strong>Dandeli</strong><span>Resorts Booking</span></div>
+    <span class="loader-line" aria-hidden="true"></span>
+  </div>
 
   <a class="skip-link" href="#main-content">Skip to main content</a>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js');window.setTimeout(function(){if(document.documentElement.classList.contains('sb-ready'))return;document.documentElement.classList.add('sb-fallback');var l=document.getElementById('siteLoader');if(l)l.classList.add('is-hidden');if(document.body)document.body.classList.remove('is-loading');},4000);</script>
   <title>Dandeli Resorts Booking | Resorts, Cottages, Homestays &amp; Camping from ₹1199</title>
   <meta name="description" content="Book your perfect Dandeli stay — resorts, cottages, homestays and camping packages with 3 meals, river activities, trekking and in-house entertainment. Packages from ₹1199 per person.">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -30,7 +30,15 @@
   {"@context":"https://schema.org","@type":"TravelAgency","name":"Dandeli Resorts Booking","description":"Direct booking assistance for resorts, cottages, homestays and camping packages in Dandeli, Karnataka.","telephone":"+91-88841-13122","areaServed":{"@type":"City","name":"Dandeli"},"address":{"@type":"PostalAddress","addressLocality":"Dandeli","addressRegion":"Karnataka","addressCountry":"IN"},"priceRange":"₹₹"}
   </script>
 </head>
-<body>
+<body class="is-loading">
+
+  <div class="site-loader" id="siteLoader" role="status" aria-live="polite" aria-label="Loading Dandeli Resorts Booking">
+    <div class="loader-orbit" aria-hidden="true">
+      <span class="loader-icon"><img src="images/logo-white.png" alt="" width="900" height="262"></span>
+    </div>
+    <div class="loader-brand" aria-hidden="true"><strong>Dandeli</strong><span>Resorts Booking</span></div>
+    <span class="loader-line" aria-hidden="true"></span>
+  </div>
 
   <a class="skip-link" href="#main-content">Skip to main content</a>
 

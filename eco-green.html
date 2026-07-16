@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('js');</script>
+  <script>document.documentElement.classList.add('js');window.setTimeout(function(){if(document.documentElement.classList.contains('sb-ready'))return;document.documentElement.classList.add('sb-fallback');var l=document.getElementById('siteLoader');if(l)l.classList.add('is-hidden');if(document.body)document.body.classList.remove('is-loading');},4000);</script>
   <title>Eco Green Dandeli | Luxury Jungle Stay with Infinity Pool</title>
   <meta name="description" content="Eco Green Dandeli — a luxury jungle stay near KC Circle with an infinity pool over forest views, deluxe sharing rooms, camping tents, dormitory, veg &amp; non-veg dining, bonfire and indoor games. Book on WhatsApp.">
   <meta name="robots" content="index, follow, max-image-preview:large">
@@ -31,7 +31,15 @@
   {"@context":"https://schema.org","@type":"LodgingBusiness","name":"Eco Green Dandeli","description":"Jungle stay with an infinity pool, rooms, camping, dining and bonfire near KC Circle, Dandeli.","telephone":"+91-88841-13122","address":{"@type":"PostalAddress","streetAddress":"Moulangi Road, KC Circle","addressLocality":"Dandeli","addressRegion":"Karnataka","addressCountry":"IN"},"priceRange":"₹1400–₹2000 per person"}
   </script>
 </head>
-<body>
+<body class="is-loading">
+
+  <div class="site-loader" id="siteLoader" role="status" aria-live="polite" aria-label="Loading Dandeli Resorts Booking">
+    <div class="loader-orbit" aria-hidden="true">
+      <span class="loader-icon"><img src="images/logo-white.png" alt="" width="900" height="262"></span>
+    </div>
+    <div class="loader-brand" aria-hidden="true"><strong>Dandeli</strong><span>Resorts Booking</span></div>
+    <span class="loader-line" aria-hidden="true"></span>
+  </div>
 
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
