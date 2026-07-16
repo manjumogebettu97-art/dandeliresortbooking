@@ -168,7 +168,7 @@
     var slides = car.querySelectorAll(".sc-slide");
     var dots = car.querySelectorAll(".sc-dot");
     if (slides.length < 2) return;
-    var idx = 0, timer = null, delay = 4000;
+    var idx = 0, timer = null, delay = 2000;
 
     function goTo(n) {
       slides[idx].classList.remove("is-active");
