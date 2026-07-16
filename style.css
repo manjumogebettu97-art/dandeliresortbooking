@@ -1479,21 +1479,11 @@ body::before {
 .steps.path-active::before { transform: scaleX(1); }
 .step {
   border-radius: 6px;
-  background: linear-gradient(150deg, var(--white), var(--warm));
-  overflow: hidden;
+  background:
+    radial-gradient(150px 150px at bottom right, rgba(184, 144, 79, .10), transparent 60%),
+    linear-gradient(150deg, var(--white), var(--warm));
 }
-.step::after {
-  content: "";
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  right: -75px;
-  bottom: -75px;
-  border: 1px solid rgba(184, 144, 79, .13);
-  border-radius: 50%;
-  transition: transform .6s var(--ease-premium);
-}
-.step:hover::after { transform: scale(1.25); }
+.step::after { content: none; }
 .step-num { z-index: 2; }
 
 /* Animated FAQ disclosure */
