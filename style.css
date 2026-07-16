@@ -1292,7 +1292,8 @@ html.sb-fallback .reveal { opacity: 1 !important; transform: none !important; }
     overflow: hidden;
     flex: 0 0 34px;
   }
-  .site-header .brand-logo {
+  .site-header .brand-logo,
+  .site-header.scrolled .brand-logo {
     height: 78px;
     width: auto;
     max-width: none;
