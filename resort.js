@@ -163,6 +163,39 @@
     });
   }
 
+  /* Auto-moving carousels (About section) */
+  document.querySelectorAll("[data-carousel]").forEach(function (car) {
+    var slides = car.querySelectorAll(".sc-slide");
+    var dots = car.querySelectorAll(".sc-dot");
+    if (slides.length < 2) return;
+    var idx = 0;
+    var timer = null;
+    var delay = 4000;
+    function goTo(n) {
+      slides[idx].classList.remove("is-active");
+      if (dots[idx]) dots[idx].classList.remove("is-active");
+      idx = (n + slides.length) % slides.length;
+      slides[idx].classList.add("is-active");
+      if (dots[idx]) dots[idx].classList.add("is-active");
+    }
+    function start() {
+      if (reduced || timer) return;
+      timer = setInterval(function () { goTo(idx + 1); }, delay);
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    dots.forEach(function (dot, n) {
+      dot.addEventListener("click", function () { goTo(n); stop(); start(); });
+    });
+    car.addEventListener("mouseenter", stop);
+    car.addEventListener("mouseleave", start);
+    if (document.hidden !== undefined) {
+      document.addEventListener("visibilitychange", function () {
+        if (document.hidden) stop(); else start();
+      });
+    }
+    start();
+  });
+
   /* Footer year */
   var y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();

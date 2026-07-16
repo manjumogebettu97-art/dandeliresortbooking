@@ -136,12 +136,53 @@
   line-height: 1.15;
 }
 .about-copy p { color: var(--grey); font-weight: 300; margin-bottom: 1rem; }
+.about-media picture { display: block; width: 100%; }
 .about-media img {
   width: 100%;
+  height: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border: 1px solid var(--border);
 }
+
+/* ---------- About-section auto-moving carousel ---------- */
+.stay-carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--warm);
+}
+.sc-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 1.1s var(--ease-premium);
+}
+.sc-slide.is-active { opacity: 1; }
+.sc-slide picture { display: block; width: 100%; height: 100%; }
+.sc-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sc-dots {
+  position: absolute;
+  left: 0; right: 0; bottom: 1rem;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+}
+.sc-dot {
+  width: 8px; height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .55);
+  cursor: pointer;
+  transition: background .3s ease, transform .3s ease;
+}
+.sc-dot:hover { background: rgba(255, 255, 255, .9); }
+.sc-dot.is-active { background: var(--gold); transform: scale(1.35); }
 
 /* ---------- Room feature list (inside reused .pkg-card) ---------- */
 .room-features {
@@ -254,6 +295,7 @@
   .about-wrap, .locate-wrap { grid-template-columns: 1fr; gap: 2.2rem; }
   .about-media { order: -1; }
   .about-media img { aspect-ratio: 16 / 10; }
+  .stay-carousel { aspect-ratio: 16 / 10; }
 }
 @media (max-width: 640px) {
   .resort-hero { min-height: 78vh; }
