@@ -1035,7 +1035,7 @@ textarea:focus-visible, summary:focus-visible {
   font-family: var(--font-head);
   font-style: italic;
   font-size: 1.08rem;
-  color: rgba(255, 255, 255, .88);
+  color: var(--gold);
 }
 .marquee-track i {
   font-style: normal;
