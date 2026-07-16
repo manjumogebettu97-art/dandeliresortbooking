@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>document.documentElement.classList.add('js');window.setTimeout(function(){if(document.documentElement.classList.contains('sb-ready'))return;document.documentElement.classList.add('sb-fallback');var l=document.getElementById('siteLoader');if(l)l.classList.add('is-hidden');if(document.body)document.body.classList.remove('is-loading');},4000);</script>
+  <script>document.documentElement.classList.add('js');document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&t.parentNode&&t.parentNode.tagName==='PICTURE'&&!t.dataset.fb){t.dataset.fb=1;var ss=t.parentNode.getElementsByTagName('source');while(ss.length){ss[0].parentNode.removeChild(ss[0]);}var s=t.getAttribute('src');t.removeAttribute('srcset');t.src='';t.src=s;}},true);window.setTimeout(function(){if(document.documentElement.classList.contains('sb-ready'))return;document.documentElement.classList.add('sb-fallback');var l=document.getElementById('siteLoader');if(l)l.classList.add('is-hidden');if(document.body)document.body.classList.remove('is-loading');},4000);</script>
   <title>Nadi Teera Cottages, Dandeli | Riverside Stay &amp; Adventure Packages</title>
   <meta name="description" content="Nadi Teera Cottages — riverside stays in Ganeshgudi, Dandeli with premium, deluxe and commando cottages, buffet meals, swimming pool, bonfire and river activities. Book on WhatsApp.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#FAF8F4">
+  <meta name="color-scheme" content="light">
   <meta property="og:title" content="Nadi Teera Cottages, Dandeli — Riverside Stay">
   <meta property="og:description" content="Riverside cottages in Ganeshgudi with buffet meals, pool, bonfire and Dandeli activities.">
   <meta property="og:type" content="website">
