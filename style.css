@@ -1134,6 +1134,45 @@ html.sb-fallback .reveal { opacity: 1 !important; transform: none !important; }
   100% { top: 100%; }
 }
 
+/* ---------- Booking enquiry modal ---------- */
+.booking-modal {
+  border: 0;
+  padding: 0;
+  width: min(440px, 92vw);
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--body);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.booking-modal::backdrop {
+  background: rgba(20, 18, 14, .55);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+.bm-form { position: relative; display: grid; gap: 1rem; padding: 2.1rem 1.7rem 1.7rem; }
+.bm-close {
+  position: absolute; top: .5rem; right: .7rem;
+  background: none; border: 0; padding: .2rem .5rem;
+  font-size: 1.7rem; line-height: 1; color: var(--grey); cursor: pointer;
+}
+.bm-close:hover { color: var(--charcoal); }
+.bm-title { font-family: var(--font-head); font-size: 1.75rem; font-weight: 600; color: var(--heading); line-height: 1.1; }
+.bm-sub { font-size: .9rem; color: var(--grey); margin-top: -.45rem; }
+.bm-field { display: grid; gap: .35rem; }
+.bm-field > span { font-size: .7rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--grey); font-weight: 500; }
+.bm-field input {
+  font-family: var(--font-body); font-size: .95rem;
+  padding: .72rem .85rem;
+  border: 1px solid var(--border); border-radius: 4px;
+  background: var(--warm); color: var(--charcoal); width: 100%;
+}
+.bm-field input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201, 167, 106, .22); }
+.bm-row { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+.bm-submit { margin-top: .5rem; }
+.bm-note { font-size: .74rem; color: var(--muted); text-align: center; margin-top: -.2rem; }
+@media (max-width: 420px) { .bm-row { grid-template-columns: 1fr; } }
+
 /* Amenity marquee ribbon */
 .marquee {
   position: relative;
