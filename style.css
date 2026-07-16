@@ -12,6 +12,11 @@
   --gold-deep: #B8904F;
   --charcoal: #222222;
   --grey: #6B7280;
+  --heading: #1F1F1F;
+  --heading-2: #2A2A2A;
+  --body: #333333;
+  --muted: #8A8F98;
+  --link: #4F7F9F;
   --border: #E5E7EB;
   --wa: #C9A76A;
   --wa-dark: #B8904F;
@@ -28,7 +33,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 82px; }
 
 body {
   font-family: var(--font-body);
-  color: var(--charcoal);
+  color: var(--body);
   background: var(--warm);
   line-height: 1.7;
   font-weight: 400;
@@ -321,7 +326,7 @@ textarea:focus-visible, summary:focus-visible {
   font-family: var(--font-head);
   font-size: clamp(2.2rem, 4.5vw, 3.2rem);
   font-weight: 500;
-  color: var(--charcoal);
+  color: var(--heading);
   margin-bottom: .8rem;
   line-height: 1.12;
 }
@@ -389,7 +394,7 @@ textarea:focus-visible, summary:focus-visible {
   font-family: var(--font-head);
   font-size: 1.6rem;
   font-weight: 600;
-  color: var(--charcoal);
+  color: var(--heading-2);
   margin-bottom: .45rem;
   line-height: 1.2;
 }
@@ -404,7 +409,7 @@ textarea:focus-visible, summary:focus-visible {
   font-family: var(--font-head);
   font-size: 1.75rem;
   font-weight: 600;
-  color: var(--charcoal);
+  color: var(--gold-deep);
 }
 .pkg-price small {
   font-size: .68rem;
@@ -435,7 +440,7 @@ textarea:focus-visible, summary:focus-visible {
 .include-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
 .include-card h3 {
   font-family: var(--font-head);
-  color: var(--charcoal);
+  color: var(--heading-2);
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: .55rem;
@@ -483,7 +488,7 @@ textarea:focus-visible, summary:focus-visible {
 .feat-body { padding: 1.5rem 1.6rem 1.7rem; }
 .feat-body h3 {
   font-family: var(--font-head);
-  color: var(--charcoal);
+  color: var(--heading-2);
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: .3rem;
@@ -579,7 +584,7 @@ textarea:focus-visible, summary:focus-visible {
   font-family: var(--font-head);
   font-size: 1.35rem;
   font-weight: 600;
-  color: var(--charcoal);
+  color: var(--heading-2);
   margin-bottom: .5rem;
 }
 .step p { color: var(--grey); font-size: .92rem; font-weight: 300; }
@@ -599,7 +604,7 @@ textarea:focus-visible, summary:focus-visible {
   font-family: var(--font-head);
   font-size: clamp(2.2rem, 4.5vw, 3rem);
   font-weight: 500;
-  color: var(--charcoal);
+  color: var(--heading);
   margin-bottom: .8rem;
   line-height: 1.1;
 }
@@ -635,7 +640,7 @@ textarea:focus-visible, summary:focus-visible {
 .contact-list a:hover { color: var(--charcoal); text-decoration: underline; text-decoration-color: var(--gold-deep); }
 
 .enquiry-info > p.quick-cta { font-weight: 400; color: var(--charcoal); }
-.quick-cta a { color: var(--charcoal); text-decoration: underline; text-decoration-color: var(--gold-deep); font-weight: 500; }
+.quick-cta a { color: var(--link); text-decoration: underline; text-decoration-color: var(--gold-deep); font-weight: 500; }
 .quick-cta a:hover { text-decoration: underline; }
 
 .enquiry-form {
@@ -750,7 +755,7 @@ textarea:focus-visible, summary:focus-visible {
 }
 .faq-item[open] summary::after { content: "−"; }
 .faq-item p { padding: 0 1.6rem 1.4rem; color: var(--grey); font-weight: 300; letter-spacing: .2px; }
-.faq-item p a { color: var(--charcoal); font-weight: 500; text-decoration-color: var(--gold-deep); }
+.faq-item p a { color: var(--link); font-weight: 500; text-decoration-color: var(--gold-deep); }
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -797,6 +802,7 @@ textarea:focus-visible, summary:focus-visible {
   font-size: .8rem;
   font-weight: 300;
   letter-spacing: .6px;
+  color: var(--muted);
 }
 
 /* ---------- Floating WhatsApp ---------- */
