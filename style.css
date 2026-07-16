@@ -206,7 +206,7 @@ textarea:focus-visible, summary:focus-visible {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 100;
-  padding: 1.1rem 0;
+  padding: .85rem 0;
   transition: background .25s ease, box-shadow .25s ease, padding .25s ease, border-color .25s ease;
   border-bottom: 1px solid transparent;
 }
@@ -214,7 +214,7 @@ textarea:focus-visible, summary:focus-visible {
   background: rgba(250, 248, 244, .97);
   backdrop-filter: blur(12px);
   border-bottom-color: var(--border);
-  padding: .65rem 0;
+  padding: .5rem 0;
 }
 
 .header-inner {
@@ -236,11 +236,12 @@ textarea:focus-visible, summary:focus-visible {
 .brand-logo {
   display: block;
   width: auto;
-  height: 60px;
-  max-width: min(230px, 56vw);
+  height: 44px;
+  max-width: min(180px, 48vw);
   object-fit: contain;
-  transition: filter .25s ease, opacity .25s ease;
+  transition: filter .25s ease, opacity .25s ease, height .25s ease;
 }
+.site-header.scrolled .brand-logo { height: 40px; }
 .site-header.scrolled .brand-logo { filter: invert(1); }
 .brand-icon { width: 32px; height: 32px; color: var(--gold); }
 .brand-text {
@@ -287,7 +288,7 @@ textarea:focus-visible, summary:focus-visible {
 .site-header.scrolled .nav-link { color: var(--charcoal); }
 .site-header.scrolled .nav-link:hover,
 .site-header.scrolled .nav-link.active { color: var(--charcoal); }
-.nav-cta { margin-left: .5rem; padding: .6rem 1.3rem; font-size: .72rem; }
+.nav-cta { margin-left: .9rem; padding: .62rem 1.35rem; font-size: .72rem; }
 
 .nav-toggle {
   display: none;
@@ -406,10 +407,10 @@ textarea:focus-visible, summary:focus-visible {
 }
 
 /* ---------- Sections ---------- */
-.section { padding: 6.5rem 0; }
+.section { padding: 5.75rem 0; }
 .section-alt { background: var(--porcelain); }
 
-.section-head { text-align: center; max-width: 680px; margin: 0 auto 3.8rem; }
+.section-head { text-align: center; max-width: 680px; margin: 0 auto 3.2rem; }
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -883,7 +884,7 @@ textarea:focus-visible, summary:focus-visible {
   padding: 4.2rem 0 3rem;
 }
 .brand.light { color: var(--white); }
-.footer-brand .brand-logo { height: 58px; max-width: 240px; }
+.footer-brand .brand-logo { height: 46px; max-width: 190px; }
 .footer-brand p { margin-top: 1rem; font-size: .92rem; font-weight: 300; max-width: 300px; letter-spacing: .2px; }
 
 .site-footer h3 {
