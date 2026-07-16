@@ -168,9 +168,8 @@
     var slides = car.querySelectorAll(".sc-slide");
     var dots = car.querySelectorAll(".sc-dot");
     if (slides.length < 2) return;
-    var idx = 0;
-    var timer = null;
-    var delay = 4000;
+    var idx = 0, timer = null, delay = 4000;
+
     function goTo(n) {
       slides[idx].classList.remove("is-active");
       if (dots[idx]) dots[idx].classList.remove("is-active");
@@ -178,17 +177,42 @@
       slides[idx].classList.add("is-active");
       if (dots[idx]) dots[idx].classList.add("is-active");
     }
-    function start() {
-      if (reduced || timer) return;
-      timer = setInterval(function () { goTo(idx + 1); }, delay);
-    }
+    function start() { if (reduced || timer) return; timer = setInterval(function () { goTo(idx + 1); }, delay); }
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
+    function restart() { stop(); start(); }
+
+    /* Prev / next arrows — injected to keep the markup lean */
+    function mkArrow(cls, label, d) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "sc-arrow " + cls;
+      b.setAttribute("aria-label", label);
+      b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="' + d + '"/></svg>';
+      return b;
+    }
+    var prev = mkArrow("sc-prev", "Previous photo", "M15 6l-6 6 6 6");
+    var next = mkArrow("sc-next", "Next photo", "M9 6l6 6-6 6");
+    prev.addEventListener("click", function () { goTo(idx - 1); restart(); });
+    next.addEventListener("click", function () { goTo(idx + 1); restart(); });
+    car.appendChild(prev);
+    car.appendChild(next);
+
     dots.forEach(function (dot, n) {
-      dot.addEventListener("click", function () { goTo(n); stop(); start(); });
+      dot.addEventListener("click", function () { goTo(n); restart(); });
     });
-    car.addEventListener("mouseenter", stop);
-    car.addEventListener("mouseleave", start);
-    if (document.hidden !== undefined) {
+
+    /* Swipe (touch) */
+    var sx = 0;
+    car.addEventListener("touchstart", function (e) { sx = e.touches[0].clientX; stop(); }, { passive: true });
+    car.addEventListener("touchend", function (e) {
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 40) goTo(idx + (dx < 0 ? 1 : -1));
+      start();
+    }, { passive: true });
+
+    car.addEventListener("mouseenter", function () { car.classList.add("is-paused"); stop(); });
+    car.addEventListener("mouseleave", function () { car.classList.remove("is-paused"); start(); });
+    if (typeof document.hidden !== "undefined") {
       document.addEventListener("visibilitychange", function () {
         if (document.hidden) stop(); else start();
       });
