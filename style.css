@@ -1477,7 +1477,7 @@ body::before {
 .pkg-details-btn { appearance: none; background: transparent; }
 
 /* Inclusions become intentional editorial tiles */
-.include-grid { gap: 1.25rem; align-items: start; }
+.include-grid { gap: 1.25rem; align-items: stretch; }
 .include-card {
   position: relative;
   overflow: hidden;
